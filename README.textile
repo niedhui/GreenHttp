@@ -1,0 +1,31 @@
+An Apache HttpClient wrapper . 
+
+I went in with One requirement:
+
+	Should be simple 
+
+eg:
+
+Http.initForAndroid("agent_string");
+
+// use http basic auth if needed
+Http.getHttpAgent().useBasicAuth().setBaseUri("http://api.xxxx.com");
+Http.setCredentials(username, password);
+
+// string response
+String body = Http.get("http://localhost:4567/users.json").with("id","2").go().stringBody()
+
+
+// json response
+SimpleJson json = Http.get("http://localhost:4567/users.json").with("id", "1").go().toJson();
+
+// entity response
+
+User user = Http.get("/users.json").with("id", "1").go().toEntity(new JsonParser<User>() {
+
+			@Override
+			protected User fromJson(SimpleJson json) {
+				return null;
+			}
+			
+		});
