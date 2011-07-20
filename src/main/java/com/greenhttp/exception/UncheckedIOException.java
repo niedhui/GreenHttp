@@ -3,7 +3,7 @@ package com.greenhttp.exception;
 import java.io.IOException;
 
 @SuppressWarnings("serial")
-public class UncheckedIOException extends NieHttpException {
+public class UncheckedIOException extends GreenHttpException {
 
 	public UncheckedIOException() {
 

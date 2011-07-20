@@ -1,7 +1,7 @@
 package com.greenhttp.exception;
 
 @SuppressWarnings("serial")
-public class CredentialsException extends NieHttpException {
+public class CredentialsException extends GreenHttpException {
 
 	public CredentialsException() {
 		super();

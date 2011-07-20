@@ -1,7 +1,7 @@
 package com.greenhttp.exception;
 
 @SuppressWarnings("serial")
-public class ServerDownException extends NieHttpException {
+public class ServerDownException extends GreenHttpException {
 
 	public ServerDownException() {
 		super();

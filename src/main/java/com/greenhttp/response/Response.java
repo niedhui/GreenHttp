@@ -7,6 +7,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 
 import com.greenhttp.exception.CredentialsException;
+import com.greenhttp.exception.GreenHttpException;
 import com.greenhttp.exception.ServerDownException;
 import com.greenhttp.json.SimpleJson;
 import com.greenhttp.parser.JsonListParser;
@@ -41,10 +42,9 @@ public class Response {
 			releaseEntity(responseEntity);
 			throw new ServerDownException();
 		default:
-			break;
+			throw new GreenHttpException(statusCode, new HttpEntityStringParser().parse(responseEntity));
 		}
-		releaseEntity(responseEntity);
-		return null;
+
 	}
 
 	public String stringBody() {
